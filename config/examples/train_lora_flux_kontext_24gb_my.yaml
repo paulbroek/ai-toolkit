@@ -8,7 +8,7 @@ config:
       # root folder to save training sessions/samples/weights
       training_folder: "output"
       # uncomment to see performance stats in the terminal every N steps
-#      performance_log_every: 1000
+      performance_log_every: 1000
       device: cuda:0
       # if a trigger word is specified, it will be added to captions of training data if it does not already exist
       # alternatively, in your captions you can add [trigger] and it will be replaced with the trigger word
@@ -31,7 +31,7 @@ config:
         # images will automatically be resized and bucketed into the resolution specified
         # on windows, escape back slashes with another backslash so
         # "C:\\path\\to\\images\\folder"
-        - folder_path: "/path/to/images/folder"
+        - folder_path: "/data/prepared_dataset"
           # control path is the input images for kontext for a paired dataset. These are the source images you want to change.  
           # You can comment this out and only use normal images if you don't have a paired dataset. 
           # Control images need to match the filenames on the folder path but in
@@ -78,23 +78,27 @@ config:
 #        low_vram: true  # uncomment this if the GPU is connected to your monitors. It will use less vram to quantize, but is slower.
       sample:
         sampler: "flowmatch" # must match train.noise_scheduler
-        sample_every: 250 # sample every this many steps
+        sample_every: 100 # sample every this many steps
         width: 1024
         height: 1024
         prompts:
           # you can add [trigger] to the prompts here and it will be replaced with the trigger word
           # the --ctrl_img path is the one loaded to apply the kontext editing to
 #          - "[trigger] holding a sign that says 'I LOVE PROMPTS!'"\
-          - "make the person smile  --ctrl_img /path/to/control/folder/person1.jpg"
-          - "give the person an afro  --ctrl_img /path/to/control/folder/person1.jpg"
-          - "turn this image into a cartoon  --ctrl_img /path/to/control/folder/person1.jpg"
-          - "put this person in an action film  --ctrl_img /path/to/control/folder/person1.jpg"
-          - "make this person a rapper in a rap music video  --ctrl_img /path/to/control/folder/person1.jpg"
-          - "make the person smile  --ctrl_img /path/to/control/folder/person1.jpg"
-          - "give the person an afro  --ctrl_img /path/to/control/folder/person1.jpg"
-          - "turn this image into a cartoon  --ctrl_img /path/to/control/folder/person1.jpg"
-          - "put this person in an action film  --ctrl_img /path/to/control/folder/person1.jpg"
-          - "make this person a rapper in a rap music video  --ctrl_img /path/to/control/folder/person1.jpg"
+          #- "make the person smile  --ctrl_img /path/to/control/folder/person1.jpg"
+          #- "give the person an afro  --ctrl_img /path/to/control/folder/person1.jpg"
+          #- "turn this image into a cartoon  --ctrl_img /path/to/control/folder/person1.jpg"
+          #- "put this person in an action film  --ctrl_img /path/to/control/folder/person1.jpg"
+          #- "make this person a rapper in a rap music video  --ctrl_img /path/to/control/folder/person1.jpg"
+          #- "make the person smile  --ctrl_img /path/to/control/folder/person1.jpg"
+          #- "give the person an afro  --ctrl_img /path/to/control/folder/person1.jpg"
+          #- "turn this image into a cartoon  --ctrl_img /path/to/control/folder/person1.jpg"
+          #- "put this person in an action film  --ctrl_img /path/to/control/folder/person1.jpg"
+          #- "make this person a rapper in a rap music video  --ctrl_img /path/to/control/folder/person1.jpg"
+          - "ohwx man portrait photo"
+          - "ohwx man, natural lighting, headshot"
+          - "ohwx man standing outdoors"
+          - "ohwx man, full body photo, casual outfit"
         neg: ""  # not used on flux
         seed: 42
         walk_seed: true
