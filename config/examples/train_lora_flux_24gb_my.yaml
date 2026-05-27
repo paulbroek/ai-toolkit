@@ -31,7 +31,7 @@ config:
         # images will automatically be resized and bucketed into the resolution specified
         # on windows, escape back slashes with another backslash so
         # "C:\\path\\to\\images\\folder"
-        - folder_path: "/app/ai-toolkit/datasets/pictures1"
+        - folder_path: "/app/ai-toolkit/datasets/dataset1"
           caption_ext: "txt"
           caption_dropout_rate: 0.05  # will drop out the caption 5% of time
           shuffle_tokens: false  # shuffle caption order, split by commas
@@ -64,6 +64,8 @@ config:
       model:
         # huggingface model name or path
         name_or_path: "black-forest-labs/FLUX.1-dev"
+        # not yet supported? gives errors and is 2X bigger in size than FLUX.1-dev
+        #name_or_path: "black-forest-labs/FLUX.2-dev"
         is_flux: true
         quantize: true  # run 8bit mixed precision
 #        low_vram: true  # uncomment this if the GPU is connected to your monitors. It will use less vram to quantize, but is slower.
@@ -80,6 +82,8 @@ config:
           - "ohwx man, natural lighting, headshot"
           - "ohwx man standing outdoors"
           - "ohwx man, full body photo, casual outfit"
+          - "ohwx man, candid outdoor cafe photo, natural smile, shallow depth of field, lifestyle photography"
+          - "ohwx man, golden hour portrait, cinematic lighting, professional photography"
           #- "woman with red hair, playing chess at the park, bomb going off in the background"
           #- "a woman holding a coffee cup, in a beanie, sitting at a cafe"
           #- "a horse is a DJ at a night club, fish eye lens, smoke machine, lazer lights, holding a martini"
