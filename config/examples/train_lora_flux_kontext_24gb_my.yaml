@@ -31,7 +31,7 @@ config:
         # images will automatically be resized and bucketed into the resolution specified
         # on windows, escape back slashes with another backslash so
         # "C:\\path\\to\\images\\folder"
-        - folder_path: "/data/prepared_dataset"
+        - folder_path: "/workspace/prepared_dataset"
           # control path is the input images for kontext for a paired dataset. These are the source images you want to change.  
           # You can comment this out and only use normal images if you don't have a paired dataset. 
           # Control images need to match the filenames on the folder path but in
